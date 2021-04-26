@@ -1,0 +1,72 @@
+---
+sidebar_position: 1
+---
+
+# Button
+
+Here we are going to talk about buttons. Buttons all day long.
+
+:::note
+
+This is very preliminary work, take it with a grain of salt. Or a half grain of salt.
+
+:::
+
+## Usage
+
+Do's and don'ts go here
+
+## Examples
+
+<Button color="aqua">A BUTTON</Button>
+<Button color="#eaeaea">A BUTTON</Button>
+<Button color="pink">A BUTTON</Button>
+
+## Code
+
+```html
+<span
+  href="#"
+  style="background-color:aqua;border-radius:20px;color:#fff;padding:10px;width:200px"
+>
+  A BUTTON
+</span>
+```
+
+import ReactDOMServer from "react-dom/server";
+
+export const Button = ({ children, color }) => (
+  <span
+    href="#"
+    style={{
+      backgroundColor: color,
+      borderRadius: "20px",
+      color: "#fff",
+      padding: "10px",
+      width: "200px",
+    }}
+    onClick={() => {
+      alert(`Generated string markup\n
+${generateStaticMarkup()}`);
+    }}
+  >
+    {children}
+  </span>
+);
+
+export const generateStaticMarkup = () =>
+  ReactDOMServer.renderToStaticMarkup(
+    <span
+      href="#"
+      style={{
+        backgroundColor: "aqua",
+        borderRadius: "20px",
+        color: "#fff",
+        padding: "10px",
+        width: "200px",
+      }}
+    >
+      hello
+    </span>
+  );
+console.log(generateStaticMarkup());
